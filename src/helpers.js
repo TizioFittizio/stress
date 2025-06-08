@@ -1,0 +1,32 @@
+import { promises as fs } from 'fs';
+
+const loadArgs = () => {
+  const args = process.argv.slice(2);
+  let url, reqFile, configFile;
+  for (let i = 0; i < args.length; i++) {
+    if (args[i] === '-u' && args[i + 1]) {
+      url = args[++i];
+    } else if (args[i] === '-r' && args[i + 1]) {
+      reqFile = args[++i];
+    } else if (args[i] === '-g' && args[i + 1]) {
+      configFile = args[++i];
+    }
+  }
+  if (!url || !reqFile || !configFile) {
+    throw new Error('Usage: node index.js -u <URL> -r <request.json> -g <config.json>');
+  }
+  return { url, reqFile, configFile };
+};
+
+const loadFile = async (filename) => {
+  try {
+    const content = await fs.readFile(filename, 'utf8');
+    return content;
+  } catch (error) {
+    throw new Error(`Error reading file ${filename}: ${error.message}`);
+  }
+};
+
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+export default { loadArgs, loadFile, sleep };
