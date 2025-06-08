@@ -1,7 +1,4 @@
-import { loadArgs, loadFile } from './helpers';
-import StressRequest from './StressRequest';
-import StressConfiguration from './StressConfiguration';
-import Stress from './Stress';
+import { loadArgs, loadFile, StressRequest, StressConfiguration, Stress } from './src/index.js'
 
 const main = async () => {
   try {

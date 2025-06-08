@@ -1,6 +1,6 @@
 import { promises as fs } from 'fs';
 
-const loadArgs = () => {
+export const loadArgs = () => {
   const args = process.argv.slice(2);
   let url, reqFile, configFile;
   for (let i = 0; i < args.length; i++) {
@@ -18,7 +18,7 @@ const loadArgs = () => {
   return { url, reqFile, configFile };
 };
 
-const loadFile = async (filename) => {
+export const loadFile = async (filename) => {
   try {
     const content = await fs.readFile(filename, 'utf8');
     return content;
@@ -27,6 +27,5 @@ const loadFile = async (filename) => {
   }
 };
 
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+export const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-export default { loadArgs, loadFile, sleep };

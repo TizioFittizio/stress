@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { sleep } from './helpers';
+import { sleep } from './helpers.js';
 
-class Stress {
+export class Stress {
   constructor(baseUrl, stressRequest, stressConfig) {
     this.baseUrl = baseUrl;
     this.request = stressRequest;
@@ -31,5 +31,3 @@ class Stress {
     console.log('Stress test complete.');
   }
 }
-
-export default Stress;

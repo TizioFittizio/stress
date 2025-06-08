@@ -1,4 +1,4 @@
-class StressRequest {
+export class StressRequest {
   constructor(jsonString) {
     let parsed;
     try {
@@ -25,5 +25,3 @@ class StressRequest {
     this.headers = headers;
   }
 }
-
-export default StressRequest;

@@ -1,4 +1,4 @@
-class StressConfiguration {
+export class StressConfiguration {
   constructor(jsonString) {
     let parsed;
     try {
@@ -17,5 +17,3 @@ class StressConfiguration {
     this.interval = interval;
   }
 }
-
-export default StressConfiguration;
