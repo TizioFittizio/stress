@@ -1,1 +1,5 @@
 node_modules
+configurations/*
+!configurations/example.json
+requests/*
+!requests/example.json

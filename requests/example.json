@@ -1,0 +1,10 @@
+{
+    "path": "/api/test",
+    "verb": "POST",
+    "data": {
+        "message": "Hello, World!"
+    },
+    "headers": {
+        "Content-Type": "application/json"
+    }
+}
