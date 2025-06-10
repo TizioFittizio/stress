@@ -9,6 +9,8 @@ export class Stress {
   }
 
   async performTest() {
+    await sleep(this.config.initialDelay);
+
     const fullUrl = `${this.baseUrl}${this.request.path}`;
     console.log(`Starting stress test on ${fullUrl} using ${this.request.verb.toUpperCase()} method.`);
 
