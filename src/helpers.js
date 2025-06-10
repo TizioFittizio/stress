@@ -8,12 +8,12 @@ export const loadArgs = () => {
       url = args[++i];
     } else if (args[i] === '-r' && args[i + 1]) {
       reqFile = args[++i];
-    } else if (args[i] === '-g' && args[i + 1]) {
+    } else if (args[i] === '-c' && args[i + 1]) {
       configFile = args[++i];
     }
   }
   if (!url || !reqFile || !configFile) {
-    throw new Error('Usage: node index.js -u <URL> -r <request.json> -g <config.json>');
+    throw new Error('Usage: node index.js -u <URL> -r <request.json> -c <config.json>');
   }
   return { url, reqFile, configFile };
 };

@@ -6,7 +6,7 @@ export class StressConfiguration {
     } catch (error) {
       throw new Error(`Invalid JSON in configuration file: ${error.message}`);
     }
-    const { count, interval, concurrency } = parsed;
+    const { count, interval, concurrency, logResponse } = parsed;
     if (typeof count !== 'number') {
       throw new Error('Configuration file missing valid property: count');
     }
@@ -16,8 +16,12 @@ export class StressConfiguration {
     if (concurrency && typeof concurrency !== 'number') {
       throw new Error('Configuration file invalid property: concurrency');
     }
+    if (logResponse && typeof logResponse !== 'boolean') {
+      throw new Error('Configuration file invalid property: logResponse');
+    }
     this.count = count;
     this.interval = interval;
-    this.concurrency = concurrency || 1
+    this.concurrency = concurrency || 1;
+    this.logResponse = logResponse || false;
   }
 }

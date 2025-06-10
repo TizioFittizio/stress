@@ -38,6 +38,9 @@ export class Stress {
         data: this.request.data,
       });
       console.log(`Iteration ${iteration}: Received status ${response.status}`);
+      if (this.config.logResponse){
+        console.log(`Response data: ${JSON.stringify(response.data, null, 2)}`);
+      }
     } catch (err) {
       console.error(`Iteration ${iteration}: Request failed with error: ${err.message}`);
     }
